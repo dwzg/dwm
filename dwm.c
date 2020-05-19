@@ -232,6 +232,7 @@ static void sendmon(Client *c, Monitor *m);
 static void setclientstate(Client *c, long state);
 static void setfocus(Client *c);
 static void setfullscreen(Client *c, int fullscreen);
+/*
 static void setgaps(int oh, int ov, int ih, int iv);
 static void incrgaps(const Arg *arg);
 static void incrigaps(const Arg *arg);
@@ -242,6 +243,7 @@ static void incrihgaps(const Arg *arg);
 static void incrivgaps(const Arg *arg);
 static void togglegaps(const Arg *arg);
 static void defaultgaps(const Arg *arg);
+*/
 static void setlayout(const Arg *arg);
 static void setmfact(const Arg *arg);
 static void setup(void);
@@ -1695,6 +1697,7 @@ setfullscreen(Client *c, int fullscreen)
 	}
 }
 
+/*
 void
 setgaps(int oh, int ov, int ih, int iv)
 {
@@ -1799,6 +1802,7 @@ incrivgaps(const Arg *arg)
 		selmon->gappiv + arg->i
 	);
 }
+*/
 
 void
 setlayout(const Arg *arg)
