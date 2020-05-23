@@ -924,11 +924,12 @@ drawbar(Monitor *m)
 	}
 	drw_map(drw, m->barwin, 0, 0, m->ww - stw, bh);
 
-	if (m == selmon) { /* extra status is only drawn on selected monitor */
-		drw_setscheme(drw, scheme[SchemeNorm]);
+	drw_setscheme(drw, scheme[SchemeNorm]);
+	if (m == selmon) /* extra status is only drawn on selected monitor */
 		drw_text(drw, 0, 0, mons->ww, bh, 0, estext, 0);
-		drw_map(drw, m->extrabarwin, 0, 0, m->ww, bh);
-	}
+	else
+		drw_text(drw, 0, 0, mons->ww, bh, 0, "", 0);
+	drw_map(drw, m->extrabarwin, 0, 0, m->ww, bh);
 }
 
 void
