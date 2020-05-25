@@ -2046,6 +2046,15 @@ tagmon(const Arg *arg)
 }
 
 void
+tagfocusmon(const Arg *arg)
+{
+	if (!selmon->sel || !mons->next)
+		return;
+	sendmon(selmon->sel, dirtomon(arg->i));
+	focusmon(arg);
+}
+
+void
 tile(Monitor *m)
 {
 	unsigned int i, n, h, r, oe = enablegaps, ie = enablegaps, mw, my, ty;
