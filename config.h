@@ -74,7 +74,6 @@ static const char *termcmd[]  = { "st", NULL };
 static const char scratchpadname[] = "scratchpad";
 static const char *scratchpadcmd[] = { "st", "-t", scratchpadname, "-g", "120x34", NULL };
 
-#include "selfrestart.c"
 #include <X11/XF86keysym.h>
 static Key keys[] = {
 	/* modifier                     key                      function        argument */
@@ -119,7 +118,6 @@ static Key keys[] = {
 	TAGKEYS(                        XK_8,                                    7)
 	TAGKEYS(                        XK_9,                                    8)
 	{ MODKEY|ShiftMask,             XK_q,                    quit,           {0} },
-	{ MODKEY|ShiftMask,             XK_r,                    self_restart,   {0} },
 	{ 0,				XK_Print,	         spawn,		 SHCMD("maim pic-full-$(date '+%y%m%d-%H%M-%S').png") },
 	{ 0,                            XF86XK_AudioMute,        spawn,          SHCMD("pamixer -t") },
 	{ 0,                            XF86XK_AudioRaiseVolume, spawn,          SHCMD("pamixer --allow-boost -i 3") },
