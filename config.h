@@ -118,6 +118,7 @@ static Key keys[] = {
 	TAGKEYS(                        XK_8,                                    7)
 	TAGKEYS(                        XK_9,                                    8)
 	{ MODKEY|ShiftMask,             XK_q,                    quit,           {0} },
+	{ MODKEY|ControlMask|ShiftMask, XK_q,                    quit,           {1} },
 	{ 0,				XK_Print,	         spawn,		 SHCMD("maim pic-full-$(date '+%y%m%d-%H%M-%S').png") },
 	{ 0,                            XF86XK_AudioMute,        spawn,          SHCMD("pamixer -t") },
 	{ 0,                            XF86XK_AudioRaiseVolume, spawn,          SHCMD("pamixer --allow-boost -i 3") },
