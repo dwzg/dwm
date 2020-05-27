@@ -15,8 +15,8 @@ static const int showsystray             = 1;   /* 0 means no systray */
 static const int showbar                 = 1;   /* 0 means no bar */
 static const int topbar                  = 1;   /* 0 means bottom bar */
 static const char statussep              = ';'; /* separator between status bars */
-static const char *fonts[]               = { "monospace:size=10" };
-static const char dmenufont[]            = "monospace:size=10";
+static const char *fonts[]               = { "Roboto Mono:size=12" };
+static const char dmenufont[]            = "Roboto Mono:size=12";
 static const char col_gray1[]            = "#222222";
 static const char col_gray2[]            = "#444444";
 static const char col_gray3[]            = "#bbbbbb";
@@ -98,6 +98,7 @@ static Key keys[] = {
 	{ MODKEY,                       XK_s,                    spawn,          SHCMD("spotify") },
 	{ MODKEY|ShiftMask,             XK_s,                    spawn,          SHCMD("steam") },
 	{ MODKEY,                       XK_w,                    spawn,          SHCMD("chromium") },
+	{ MODKEY|ShiftMask,             XK_w,                    spawn,          SHCMD("weather") },
 	{ MODKEY,                       XK_space,                zoom,           {0} },
 	{ MODKEY|ShiftMask,             XK_space,                togglefloating, {0} },
 	{ MODKEY,                       XK_0,                    view,           {.ui = ~0 } },
@@ -119,6 +120,7 @@ static Key keys[] = {
 	TAGKEYS(                        XK_9,                                    8)
 	{ MODKEY|ShiftMask,             XK_q,                    quit,           {0} },
 	{ MODKEY|ShiftMask,             XK_r,                    self_restart,   {0} },
+	{ 0,				XK_Print,	         spawn,		 SHCMD("maim pic-full-$(date '+%y%m%d-%H%M-%S').png") },
 	{ 0,                            XF86XK_AudioMute,        spawn,          SHCMD("pamixer -t") },
 	{ 0,                            XF86XK_AudioRaiseVolume, spawn,          SHCMD("pamixer --allow-boost -i 3") },
 	{ 0,                            XF86XK_AudioLowerVolume, spawn,          SHCMD("pamixer --allow-boost -d 3") },
