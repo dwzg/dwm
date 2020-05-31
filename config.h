@@ -15,8 +15,10 @@ static const int showsystray             = 1;   /* 0 means no systray */
 static const int showbar                 = 1;   /* 0 means no bar */
 static const int topbar                  = 1;   /* 0 means bottom bar */
 static const char statussep              = ';'; /* separator between status bars */
-static const char *fonts[]               = { "Roboto Mono:size=11" };
-static const char dmenufont[]            = "Roboto Mono:size=11";
+static const char *fonts[]               = { "Roboto Mono:size=11:antialias=true:autohint=true",
+					     "Hack:size=14:antialias=true:autohint=true",
+					     "JoyPixels:pixelsize=11:antialias=true:autohint=true" };
+static const char dmenufont[]            = "Roboto Mono:size=11:antialias=true:autohint=true";
 static const char col_gray1[]            = "#222222";
 static const char col_gray2[]            = "#444444";
 static const char col_gray3[]            = "#bbbbbb";
@@ -62,7 +64,8 @@ static const Layout layouts[] = {
 	{ MODKEY,                       KEY,      view,           {.ui = 1 << TAG} }, \
 	{ MODKEY|ControlMask,           KEY,      toggleview,     {.ui = 1 << TAG} }, \
 	{ MODKEY|ShiftMask,             KEY,      tag,            {.ui = 1 << TAG} }, \
-	{ MODKEY|ControlMask|ShiftMask, KEY,      toggletag,      {.ui = 1 << TAG} },
+	{ MODKEY|ControlMask|ShiftMask, KEY,      toggletag,      {.ui = 1 << TAG} }, \
+	{ MODKEY|Mod1Mask,              KEY,      tagnextmon,     {.ui = 1 << TAG} },
 
 /* helper for spawning shell commands in the pre dwm-5.0 fashion */
 #define SHCMD(cmd) { .v = (const char*[]){ "/bin/sh", "-c", cmd, NULL } }
