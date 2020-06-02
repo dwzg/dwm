@@ -263,6 +263,8 @@ static void spawn(const Arg *arg);
 static Monitor *systraytomon(Monitor *m);
 static void tag(const Arg *arg);
 static void tagnextmon(const Arg *arg);
+static void tagprevmon(const Arg *arg);
+static void tagothermon(const Arg *arg, int dir);
 static void tagmon(const Arg *arg);
 static void tagfocusmon(const Arg *arg);
 static void tile(Monitor *);
@@ -2106,15 +2108,27 @@ tag(const Arg *arg)
 void
 tagnextmon(const Arg *arg)
 {
+	tagothermon(arg, 1);
+}
+
+void
+tagprevmon(const Arg *arg)
+{
+	tagothermon(arg, -1);
+}
+
+void
+tagothermon(const Arg *arg, int dir)
+{
 	Client *sel;
 	Monitor *newmon;
 
 	if (!selmon->sel || !mons->next)
 		return;
 	sel = selmon->sel;
-	newmon = dirtomon(1);
+	newmon = dirtomon(dir);
 	sendmon(sel, newmon);
-	if (sel && arg->ui & TAGMASK) {
+	if (arg->ui & TAGMASK) {
 		sel->tags = arg->ui & TAGMASK;
 		focus(NULL);
 		arrange(newmon);
